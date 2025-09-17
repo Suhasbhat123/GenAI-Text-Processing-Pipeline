@@ -74,20 +74,19 @@ The pipeline is **self-contained** and best run via **Jupyter Notebook** (works 
    ```bash
    git clone https://github.com/Suhasbhat123/GenAI-Text-Processing-Pipeline.git
    cd GenAI-Text-Processing-Pipeline
-2.  **Open GenText.ipynb in JupyterLab, VS Code, or Google Colab.(Use Google Cplab for better user experience)**
+2. **Open `GenText.ipynb`** in:
+   - JupyterLab  
+   - VS Code  
+   - Google Colab (recommended for better user experience)  
 
-3.  **Run all cells in order. The notebook will:**
-   
-    1.Install dependencies (flask, streamlit, transformers, pyngrok, etc.)
-    
-    2.Define entity extraction and persistence logic
-    
-    3.Start Flask backend (with ngrok URL)
-    
-    4.Launch Streamlit frontend (with ngrok URL)
-    
-    5.Process sample inputs & save results
-    
-    6.Show final CSV and DB contents
+3. **Run all cells in order. The notebook will:**
+
+   - Install dependencies (`flask`, `streamlit`, `transformers`, `pyngrok`, etc.)  
+   - Define entity extraction and persistence logic  
+   - Start Flask backend (with ngrok URL)  
+   - Launch Streamlit frontend (with ngrok URL)  
+   - Process sample inputs & save results  
+   - Show final CSV and DB contents  
+
 
   
