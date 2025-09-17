@@ -1,67 +1,86 @@
 # GenAI-Text-Processing-Pipeline
-This repository contains a full-stack, AI-powered pipeline designed to process plain-text documents, extract structured information, and expose it via a lightweight API and an interactive web interface. This project was completed as an interview assignment for a Gen-AI Developer role at Xorstack.
 
-Objective
-The primary objective of this project is to build a small AI-powered pipeline that can process text, extract specific entities, and integrate into an automation workflow. The pipeline must, at a minimum, be able to extract dates and person names and output them in a JSON format.
+This repository contains a **full-stack AI-powered pipeline** for processing plain-text documents, extracting structured information, and exposing it through both an **API** and an **interactive UI**.  
 
-The solution demonstrates the following key capabilities:
+This project was built as part of an interview assignment for a **Gen-AI Developer role at Xorstack**.
 
-AI/ML Component: Implemented using an open-source model from Hugging Face.
+---
 
-Integration: Demonstrated via a lightweight Flask API and an example n8n workflow.
+## 🎯 Objective
+The goal is to build a pipeline that can:
+- Process raw text  
+- Extract **dates** and **person names** (minimum requirement)  
+- Output structured results in **JSON format**  
 
-Data Storage: Stores processed results in both a CSV file and a SQLite database.
+---
 
-Deliverables: Provides all required components, including a code repository, working code, and example input/output.
+## 🔑 Key Features
+- **Entity Extraction (NER)** → Hugging Face `dbmdz/bert-large-cased-finetuned-conll03-english`  
+- **Regex-based Date Parsing** → Handles multiple formats & normalizes to ISO  
+- **Flask Backend API** → Lightweight endpoints for integration  
+- **Data Persistence** → Results saved in both **CSV** and **SQLite DB**  
+- **Streamlit Frontend** → Interactive web UI for demonstration  
+- **n8n Workflow** → Example automation integration  
+- **Ngrok Integration** → Public URL tunneling for backend/frontend  
 
-Pipeline Components
-The project is built with Python and consists of several interconnected parts:
+---
 
-AI/ML Core: The extract_entities function is the core of the pipeline. It uses the dbmdz/bert-large-cased-finetuned-conll03-english model for Named Entity Recognition (NER). It extracts persons, locations, and organizations. Additionally, it uses regular expressions to robustly identify and normalize various date formats.
+## ⚙️ Pipeline Components
 
-Lightweight API (Flask Backend): A Flask application serves as the main integration point. It provides several endpoints:
+### 1. AI/ML Core
+- `extract_entities(text)` handles NER + date extraction.  
+- Identifies:
+  - **Persons**
+  - **Locations**
+  - **Organizations**
+  - **Dates** (NER + regex-based)  
 
-POST /process_text: Processes raw text submitted in the request body.
+### 2. Flask API
+Endpoints:
+- `POST /process_text` → Process raw text  
+- `POST /process_file` → Process uploaded `.txt` file  
+- `GET /download_csv` → Download results in CSV  
+- `GET /download_db` → Download results in SQLite DB  
+- `GET /health` → Health check  
 
-POST /process_file: Processes an uploaded .txt file.
+### 3. Data Persistence
+- Results stored in:
+  - **SQLite DB** → `results.db`  
+  - **CSV file** → `results.csv`  
 
-GET /download_csv: Allows downloading the results.csv file.
+### 4. Streamlit Frontend
+- Simple web UI (`frontend.py`)  
+- Users can paste/upload text  
+- JSON output displayed  
+- Links to download CSV & DB  
 
-GET /download_db: Allows downloading the results.db database file.
+### 5. Automation Workflow
+- Sample **n8n workflow** (`n8n_workflow.json`) included  
+- Example: new file in a folder → webhook → Flask API → results stored  
 
-GET /health: A simple health check endpoint.
+---
 
-Data Persistence: A save_result function stores the processed input and its extracted JSON output. This data is written to a local SQLite database (results.db) and appended to a CSV file (results.csv).
+## 🚀 Getting Started
+The pipeline is **self-contained** and best run via **Jupyter Notebook** (works well in **Google Colab**).
 
-Interactive Frontend (Streamlit): A simple Streamlit UI (frontend.py) allows for easy demonstration of the pipeline. Users can paste text or upload a file, and the UI will send a request to the backend API, display the JSON output, and provide download links for the full results.
+### ✅ Prerequisites
+- Python **3.8+**  
+- `pip` package manager  
 
-Automation Workflow: A sample n8n workflow export (n8n_workflow.json) is included. This JSON snippet demonstrates a practical use case where a new file uploaded to a folder triggers a webhook, which calls the Flask API to process the file. The result is then stored or further processed.
+---
 
-Getting Started
-The entire pipeline is designed to be self-contained and can be run using a Jupyter notebook environment like Google Colab.
+## 🛠️ Setup & Execution
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Suhasbhat123/GenAI-Text-Processing-Pipeline.git
+   cd GenAI-Text-Processing-Pipeline
+2.**Open GenText.ipynb in JupyterLab, VS Code, or Google Colab.**
+3.**Run all cells in order. The notebook will:**
+   -Install dependencies (flask, streamlit, transformers, pyngrok, etc.)
+   -Define entity extraction and persistence logic
+   -Start Flask backend (with ngrok URL)
+   -Launch Streamlit frontend (with ngrok URL)
+   -Process sample inputs & save results
+   -Show final CSV and DB contents
 
-Prerequisites
-Python 3.8+
-
-pip package manager
-
-Setup and Execution
-The most straightforward way to run the project is by following the steps in the GenText.ipynb Jupyter notebook:
-
-Clone the repository:
-git clone https://github.com/Suhasbhat123/GenAI-Text-Processing-Pipeline.git
-cd GenAI-Text-Processing-Pipeline
-
-Open GenText.ipynb in a Jupyter-compatible environment (e.g., JupyterLab, VS Code, Google Colab).
-
-Execute the cells in order. The notebook will automatically:
-
-Install all necessary dependencies (flask, streamlit, transformers, pyngrok, etc.).
-
-Define the entity extraction logic and data storage functions.
-
-Start the Flask backend and Streamlit frontend in the background using pyngrok to create public URLs for access.
-
-Create and process sample input files to demonstrate the pipeline's functionality.
-
-Show the final contents of the SQLite database and CSV file.
+  
