@@ -97,7 +97,10 @@ Once the pipeline is running, the output can be accessed in three ways:
 ### 1. Direct API Response (JSON)
 
 Send a request to the Flask backend:
-<pre> ``` // Example response: { "persons": [{"text": "John Doe", "label": "PER"}], "locations": [], "organizations": [], "ner_dates": [{"text": "2025"}], "regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}] } ``` </pre>
+<pre> ``` // Example response: { "persons": [{"text": "John Doe", "label": "PER"}], 
+  "locations": [], "organizations": [], 
+  "ner_dates": [{"text": "2025"}],
+  "regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}] } ``` </pre>
 
 
 ### 2. Results in CSV
@@ -105,20 +108,21 @@ Send a request to the Flask backend:
 All processed results are automatically appended to results.csv.
 
 Open with:
-cat results.csv
+<pre>```cat results.csv``` </pre>
 
 
 ### 3. Results in SQLite Database
 
 The same results are also stored in results.db.
 
-Query directly:
-sqlite3 results.db "SELECT id, input_text, extracted_json, created_at FROM results LIMIT 10;"
+##Query directly:
+
+<pre>```sqlite3 results.db "SELECT id, input_text, extracted_json, created_at FROM results LIMIT 10;"``` </pre>
 
 
-Or use the helper script:
+##Or use the helper script:
 
-python show_results.py
+<pre>```python show_results.py``` </pre>
 
 
 
