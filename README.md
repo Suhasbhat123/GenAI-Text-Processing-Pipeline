@@ -106,18 +106,7 @@ Example response:
   "ner_dates": [{"text": "2025"}],
   "regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}]
 }
-### 2. Results in CSV
 
-All processed results are automatically appended to results.csv.
-You can open the file with:
-cat results.csv
-### 3. Results in SQLite Database
-
-The same results are also stored in results.db.
-You can query the database directly:
-sqlite3 results.db "SELECT id, input_text, extracted_json, created_at FROM results LIMIT 10;"
-Or use the helper script provided:
-python show_results.py
 
 
 
