@@ -75,6 +75,7 @@ The pipeline is **self-contained** and best run via **Jupyter Notebook** (works 
    git clone https://github.com/Suhasbhat123/GenAI-Text-Processing-Pipeline.git
    cd GenAI-Text-Processing-Pipeline
 2.**Open GenText.ipynb in JupyterLab, VS Code, or Google Colab.**
+
 3.**Run all cells in order. The notebook will:**
    -Install dependencies (flask, streamlit, transformers, pyngrok, etc.)
    -Define entity extraction and persistence logic
