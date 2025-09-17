@@ -102,9 +102,11 @@ For Example
 "text=Meeting with John Doe on September 23, 2025."
 
 <pre>Example response: { "persons": [{"text": "John Doe", "label": "PER"}], 
-  "locations": [], "organizations": [], 
+  "locations": [], 
+  "organizations": [], 
   "ner_dates": [{"text": "2025"}],
-  "regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}] }</pre>
+  "regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}] }
+</pre>
 
 
 ### 2. Results in CSV
