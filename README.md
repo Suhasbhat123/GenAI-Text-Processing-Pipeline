@@ -95,17 +95,37 @@ The pipeline is **self-contained** and best run via **Jupyter Notebook** (works 
 Once the pipeline is running, the output can be accessed in **three ways**:
 
 ### 1. Direct API Response (JSON)
+
 Send a request to the Flask backend (replace `<your-ngrok-url>` with the URL shown in the notebook):
-```bash
-curl -X POST -F "text=Meeting with John Doe on September 23, 2025." https://<your-ngrok-url>/process_text
-Example response:
+
+**Example response:**
+
 {
-  "persons": [{"text": "John Doe", "label": "PER"}],
-  "locations": [],
-  "organizations": [],
-  "ner_dates": [{"text": "2025"}],
-  "regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}]
+"persons": [{"text": "John Doe", "label": "PER"}],
+"locations": [],
+"organizations": [],
+"ner_dates": [{"text": "2025"}],
+"regex_dates": [{"text": "September 23, 2025", "iso": "2025-09-23"}]
 }
+
+
+### 2. Results in CSV
+
+All processed results are automatically appended to `results.csv`.
+
+Open with:
+
+cat results.csv
+
+
+### 3. Results in SQLite Database
+
+The same results are also stored in `results.db`.
+
+Query directly:
+
+sqlite3 results.db "SELECT id, input_text, extracted_json, created_at FROM results LIMIT 10;"
+
 
 
 
