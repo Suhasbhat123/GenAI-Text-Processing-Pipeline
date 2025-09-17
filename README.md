@@ -116,14 +116,16 @@ Open with:
 
 The same results are also stored in results.db.
 
-##Query directly:
+Query directly:
 
 <pre>sqlite3 results.db "SELECT id, input_text, extracted_json, created_at FROM results LIMIT 10;" </pre>
 
 
-##Or use the helper script:
+Or use the helper script:
 
 <pre>python show_results.py</pre>
+
+This will print the latest results from the database and the first rows from the CSV.
 
 
 
