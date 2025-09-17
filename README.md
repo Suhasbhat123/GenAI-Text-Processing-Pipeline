@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 # GenAI-Text-Processing-Pipeline
 
 This repository contains a **full-stack AI-powered pipeline** for processing plain-text documents, extracting structured information, and exposing it through both an **API** and an **interactive UI**.  
@@ -89,4 +91,6 @@ The pipeline is **self-contained** and best run via **Jupyter Notebook** (works 
    - Show final CSV and DB contents  
 
 
-  
+
+  ## 📝 License
+This project is licensed under the [MIT License](LICENSE) © 2025 Suhas Bhat.
