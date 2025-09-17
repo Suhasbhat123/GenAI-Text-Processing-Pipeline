@@ -1,0 +1,10 @@
+flask
+flask-cors
+streamlit
+transformers
+torch
+pandas
+python-dateutil
+watchdog
+requests
+pyngrok
