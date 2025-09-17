@@ -97,8 +97,10 @@ Once the pipeline is running, the output can be accessed in three ways:
 ### 1. Direct API Response (JSON)
 
 Send a request to the Flask backend:
-For Example
+
+For Example  
 "text=Meeting with John Doe on September 23, 2025."
+
 <pre>Example response: { "persons": [{"text": "John Doe", "label": "PER"}], 
   "locations": [], "organizations": [], 
   "ner_dates": [{"text": "2025"}],
